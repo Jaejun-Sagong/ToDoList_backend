@@ -33,14 +33,11 @@ public class Member {
   private Authority authority;
 
   private String profileImage;
-
   private String highschool;
   private String grade;
   private String myMotto;
   private String goalTitle;
   private LocalDate goalDate;
-
-  // 마이페이지 팔로우 / 팔로잉 버전
   private int followingsCnt;
   private int followersCnt;
 
@@ -52,7 +49,7 @@ public class Member {
 
   @Builder
   public Member(Long id, String username, String password, String nickname, String socialId, Authority authority, String profileImage, String highschool, String grade, String myMotto,
-                String goalTitle, LocalDate goalDateint, int followingsCnt, int followersCnt) {
+  String goalTitle, LocalDate goalDate, int followingsCnt, int followersCnt) {
     this.id = id;
     this.username = username;
     this.password = password;
@@ -65,8 +62,6 @@ public class Member {
     this.myMotto = myMotto;
     this.goalTitle = goalTitle;
     this.goalDate = goalDate;
-
-    // 마이페이지 팔로우 / 팔로잉 버전
     this.followingsCnt = followingsCnt;
     this.followersCnt = followersCnt;
   }

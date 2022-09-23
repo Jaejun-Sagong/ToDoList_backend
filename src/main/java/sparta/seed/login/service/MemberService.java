@@ -61,8 +61,13 @@ public class MemberService {
         System.out.println(member);
         return memberRepository.save(member);
     }
+
     public Member getMember(String nickname) {
-        Member member = memberRepository.findByNickname(nickname)
+       // return memberRepository.findByNickname(nickname)
+
+    // 마이페이지에 팔로잉 / 팔로우 수를 넣어야할 경우 미리 만들기
+
+       Member member = memberRepository.findByNickname(nickname)
                 .orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOT_FOUND));
 
         // 접속한 유저 기준 팔로잉한 수
@@ -85,6 +90,8 @@ public class MemberService {
             .followersCnt(followersCnt)
             .build();
     }
+
+
     public String updateMotto(MottoRequestDto mottoRequestDto, UserDetailsImpl userDetailsImpl) {
         Member member = memberRepository.findById(userDetailsImpl.getId())
                 .orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOT_FOUND));
